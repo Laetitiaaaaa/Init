@@ -1,0 +1,2 @@
+en session graphique : su toto
+en session ssh : toto@$(hostname) -p 2230

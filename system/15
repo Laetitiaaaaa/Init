@@ -1,1 +1,2 @@
-ps && kill (PID de tail)
+#trouver le pid de tail avec "ps | grep tail" et l'utiliser pour kill
+kill
