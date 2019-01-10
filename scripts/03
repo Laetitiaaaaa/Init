@@ -21,13 +21,13 @@ then
 	echo -e "${rose}If you want to see the commit result, enter${neutre} ${vertclair}commit${neutre}. ${rose}For push result, enter${neutre} ${vertclair}push${neutre}${rose}. Else, ${neutre}${vertclair}exit${neutre}${rose}.${neutre}"
 fi
 read $com
-if [ $com = commit ]
+if [ $com -eq commit ]
 then
 	cat ~/goinfre/commit
-elif [ $com = push ]
+elif [ $com -eq push ]
 then
 	cat ~/goinfre/push
-elif [ $com = exit ]
+elif [ $com -eq exit ]
 then
 	exit
 fi
