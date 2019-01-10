@@ -6,9 +6,11 @@ if [ $action = add ]
 then
 	git add *
 	echo -e "${cyanfonce}What is the name of the commit${neutre}${jaune}?${neutre}"
+	touch ~/goinfre/commit
+	touch ~/goinfre/push
 	read commit
-	git commit -m $commit > /goinfre/commit
-	git push > /goinfre/push
+	git commit -m $commit > ~/goinfre/commit
+	git push > ~/goinfre/push
 	echo -e "${vertfonce}Your work has been pushed${neutre}${rouge}.${neutre}"
 elif [ $action = status ]
 then
