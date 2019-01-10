@@ -12,6 +12,14 @@ then
 	git commit -m $commit > ~/goinfre/commit
 	git push > ~/goinfre/push
 	echo -e "${vertfonce}Your work has been pushed${neutre}${rouge}.${neutre}"
+	echo -e "${rose}If you want to see the commit result, enter${neutre} ${vertclair}commit${neutre}. For push result, enter ${vertclair}push${neutre}"
+	read $com
+	if [ $com = commit ]
+	then
+		cat ~/goinfre/commit
+	else
+		cat ~/goinfre/push
+	fi
 elif [ $action = status ]
 then
 	git status
