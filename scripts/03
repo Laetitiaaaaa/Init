@@ -9,7 +9,7 @@ then
 	read commit
 	git commit -m $commit > /goinfre/commit
 	git push > /goinfre/push
-	echo "${vertfonce}Your work has been pushed${neutre}${rouge}.${neutre}"
+	echo -e "${vertfonce}Your work has been pushed${neutre}${rouge}.${neutre}"
 elif [ $action = status ]
 then
 	git status
