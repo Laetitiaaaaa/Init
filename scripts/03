@@ -10,7 +10,7 @@ then
 	touch ~/goinfre/push
 	read commit
 	git commit -m $commit > ~/goinfre/commit
-	git push > ~/goinfre/push
+	git push > /goinfre/push 2>1&
 	echo -e "${vertfonce}Your work has been pushed${neutre}${rouge}.${neutre}"
 elif [ $action = status ]
 then
