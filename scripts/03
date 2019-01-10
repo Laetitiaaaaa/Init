@@ -1,6 +1,17 @@
 #!/bin/bash
-git add *
-echo "What is the name of the commit?"
-read commit
-git commit -m $commit
-git push
+echo "What do you wamt to do ? (add/status/log)"
+read action
+if [ $action = add ]
+then
+	git add *
+	echo "What is the name of the commit?"
+	read commit
+	git commit -m $commit
+	git push
+elif [ $action = status ]
+then
+	git status
+elif [ log ]
+then
+	git log
+fi
