@@ -1,3 +1,4 @@
+#!/bin/bash
 git add *
 echo "What is the name of the commit?"
 read commit
