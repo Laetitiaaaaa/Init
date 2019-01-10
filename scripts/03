@@ -1,13 +1,14 @@
 #!/bin/bash
-echo "What do you wamt to do ? (add/status/log)"
+echo "What do you want to do ? (add/status/log)"
 read action
 if [ $action = add ]
 then
 	git add *
 	echo "What is the name of the commit?"
 	read commit
-	git commit -m $commit
-	git push
+	git commit -m $commit > /dev/null 2>&1
+	git push > /dev/null 2>&1
+	echo "git push executed"
 elif [ $action = status ]
 then
 	git status
