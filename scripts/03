@@ -15,7 +15,9 @@ then
 	git add *
 	echo -e "${cyanfonce}What is the name of the commit${neutre}${jaune}?${neutre}"
 	read commit
-	git commit -m $commit > ~/goinfre/commit ; git push > ~/goinfre/push
+	git commit -m $commit > ~/goinfre/commit 
+	echo "a"
+	git push > ~/goinfre/push
 	echo -e "${vertfonce}Your work has been pushed${neutre}${rouge}.${neutre}"
 	echo -e "${rose}If you want to see the commit result, enter${neutre} ${vertclair}commit${neutre}. ${rose}For push result, enter${neutre} ${vertclair}push${neutre}${rose}. Else, ${neutre}${vertclair}exit${neutre}${rose}.${neutre}"
 fi
