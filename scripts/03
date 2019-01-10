@@ -5,9 +5,11 @@ read action
 if [ $action = status ]
 then
 	git status
+	exit
 elif [ $action = log ]
 then
 	git log
+	exit
 elif [ $action = add ]
 then
 	git add *
