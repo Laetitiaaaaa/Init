@@ -1,3 +1,5 @@
 git add *
-git commit -m "bla"
+echo "What is the name of the commit?"
+read commit
+git commit -m $commit
 git push
