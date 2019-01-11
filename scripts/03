@@ -99,7 +99,8 @@ do
 			then
 				echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
 				exit
-			else
+			elif [ $rep != C ] && [ $rep != P ] && [ $rep != exit ]
+			then
 				echo -e "${rouge}Oops wrong answer,${neutre} ${rose}try again${neutre}${rouge}.${neutre}"
 				read pb
 			fi
