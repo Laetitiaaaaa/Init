@@ -35,6 +35,7 @@ then
 			if [ $ans = push ]
 			then
 				echo `cat ~/goinfre/push`
+				echo "Have a nice day !"
 				exit
 			elif [ $ans = exit ]
 			then
