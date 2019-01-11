@@ -60,51 +60,40 @@ do
 			done
 		else
 			echo -e "${vertfonce}Your work has been pushed${neutre}${rouge}.${neutre}"
-			echo -e "${rose}If you want to see the commit result, enter${neutre} ${vertclair}C${neutre}. ${rose}For push result, enter${neutre} ${vertclair}P${neutre}${rose}. Else, ${neutre}${vertclair}exit${neutre}${rose}.${neutre}"
+			echo -e "${rose}If you want to see the commit result, enter${neutre} ${vertclair}C${neutre}. ${rose}For push result, enter${neutre} ${vertclair}P${neutre}${rose}. To exit, type anything else.${neutre}"
 		fi
 		read rep
-		while [ $rep ]
-		do
-			if [ $rep = C ]
-			then
-				echo `cat ~/goinfre/commit`
-				echo -e "${rose}Anything else ?${neutre} ${rouge}(P/no)${neutre}"
-				read ans
-				if [ $ans = P ]
-				then
-					echo `cat ~/goinfre/push`
-					echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
-					exit
-				elif [ $ans = no ]
-				then
-					echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
-					exit
-				fi
-			elif [ $rep = P ]
+		if [ $rep = C ]
+		then
+			echo `cat ~/goinfre/commit`
+			echo -e "${rose}Anything else ?${neutre} ${rouge}(P/no)${neutre}"
+			read ans
+			if [ $ans = P ]
 			then
 				echo `cat ~/goinfre/push`
-				echo -e "${rose}Anything else ?${neutre} ${rouge}(C/no)${neutre}"
-				read ans
-				if [ $ans = C ]
-				then
-					echo `cat ~/goinfre/commit`
-					echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
-					exit
-				elif [ $ans = no ]
-				then
-					echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
-					exit
-				fi
-			elif [ $rep = exit ]
+				echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
+				exit
+			elif [ $ans = no ]
 			then
 				echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
 				exit
-			elif [ $rep != C ] && [ $rep != P ] && [ $rep != exit ]
-			then
-				echo -e "${rouge}Oops wrong answer,${neutre} ${rose}try again${neutre}${rouge}.${neutre}"
-				read pb
 			fi
-		done
+		elif [ $rep = P ]
+		then
+			echo `cat ~/goinfre/push`
+			echo -e "${rose}Anything else ?${neutre} ${rouge}(C/no)${neutre}"
+			read ans
+			if [ $ans = C ]
+			then
+				echo `cat ~/goinfre/commit`
+				echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
+				exit
+			elif [ $ans = no ]
+			then
+				echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
+				exit
+			fi
+		fi
 		echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
 		exit
 	fi
