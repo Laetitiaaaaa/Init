@@ -37,7 +37,11 @@ then
 					echo `cat ~/goinfre/push`
 					echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
 					exit
-				elif [ $pb != push ]
+				elif [ $pb = exit ]
+				then
+					echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
+					exit
+				elif [ $pb != push ] && [ $pb != exit ]
 				then
 					echo -e "${rouge}Oops wrong answer,${neutre} ${rose}try again${neutre}${rouge}.${neutre}"
 					read pb
