@@ -60,44 +60,52 @@ do
 			done
 		else
 			echo -e "${vertfonce}Your work has been pushed${neutre}${rouge}.${neutre}"
-			echo -e "${rose}If you want to see the commit result, enter${neutre} ${vertclair}commit${neutre}. ${rose}For push result, enter${neutre} ${vertclair}push${neutre}${rose}. Else, ${neutre}${vertclair}exit${neutre}${rose}.${neutre}"
+			echo -e "${rose}If you want to see the commit result, enter${neutre} ${vertclair}C${neutre}. ${rose}For push result, enter${neutre} ${vertclair}P${neutre}${rose}. Else, ${neutre}${vertclair}exit${neutre}${rose}.${neutre}"
 		fi
 		read rep
-		if [ $rep = commit ]
-		then
-			echo `cat ~/goinfre/commit`
-			echo -e "${rose}Anything else ?${neutre} ${rouge}(push/no)${neutre}"
-			read ans
-			if [ $ans = push ]
-			then
-				echo `cat ~/goinfre/push`
-				echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
-				exit
-			elif [ $ans = no ]
+		while [ $rep ]
+		do
+			if [ $rep != C ] && [ $rep != P ] && [ $rep != exit ]
 			then
 				echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
 				exit
 			fi
-		elif [ $rep = push ]
-		then
-			echo `cat ~/goinfre/push`
-			echo -e "${rose}Anything else ?${neutre} ${rouge}(commit/no)${neutre}"
-			read ans
-			if [ $ans = commit ]
+			if [ $rep = C ]
 			then
 				echo `cat ~/goinfre/commit`
-				echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
-				exit
-			elif [ $ans = no ]
+				echo -e "${rose}Anything else ?${neutre} ${rouge}(P/no)${neutre}"
+				read ans
+				if [ $ans = P ]
+				then
+					echo `cat ~/goinfre/push`
+					echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
+					exit
+				elif [ $ans = no ]
+				then
+					echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
+					exit
+				fi
+			elif [ $rep = P ]
+			then
+				echo `cat ~/goinfre/push`
+				echo -e "${rose}Anything else ?${neutre} ${rouge}(C/no)${neutre}"
+				read ans
+				if [ $ans = C ]
+				then
+					echo `cat ~/goinfre/commit`
+					echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
+					exit
+				elif [ $ans = no ]
+				then
+					echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
+					exit
+				fi
+			elif [ $rep = exit ]
 			then
 				echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
 				exit
 			fi
-		elif [ $rep = exit ]
-		then
-			echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
-			exit
-		fi
+		done
 		echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
 		exit
 	fi
