@@ -32,14 +32,14 @@ then
 		if [ $rep = commit ]
 		then
 			echo `cat ~/goinfre/commit`
-			echo "Anything else ? (push/no)"
+			echo "${grisclair}Anything else ?${neutre} ${gris}(push/no)${neutre}"
 			read ans
 			if [ $ans = push ]
 			then
 				echo `cat ~/goinfre/push`
 				echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
 				exit
-			elif [ $ans = exit ]
+			elif [ $ans = no ]
 			then
 				echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
 				exit
@@ -47,6 +47,18 @@ then
 		elif [ $rep = push ]
 		then
 			echo `cat ~/goinfre/push`
+			echo "${grisclair}Anything else ?${neutre} ${gris}(commit/no)${neutre}"
+			read ans
+			if [ $ans = commit ]
+			then
+				echo `cat ~/goinfre/commit`
+				echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
+				exit
+			elif [ $ans = no ]
+			then
+				echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
+				exit
+			fi
 		elif [ $rep = exit ]
 		then
 			echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
