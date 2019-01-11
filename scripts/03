@@ -3,12 +3,20 @@ noir='\033[30m' gris='\033[1;30m' rouge='\033[31m' rose='\033[1;31m' vertfonce='
 echo -e "${jaune}*****${neutre}${rose} /!\ ${neutre} ${rouge}SCRIPT FOR GIT OPTIONS ONLY${neutre} ${rose}/!\ ${neutre}${jaune}*****${neutre}"
 echo -e "${violetclair}What do you want to do${neutre}${vertclair}?${neutre} ${violetfonce}(add/status/log)${neutre}"
 read action
+echo "$action" > ~/goinfre/fread
 while [ $action ] 
 do
+	if grep -q ' ' ~/goinfre/fread
+	then
+		echo -e "${rouge}Oops wrong answer,${neutre} ${rose}try again${neutre}${rouge}.${neutre}"
+		read action
+		echo "$action" > ~/goinfre/fread
+	fi
 	if [ $action != status ] && [ $action != log ] && [ $action != add ] && [ $action != exit ]
 	then
 		echo -e "${rouge}Oops wrong answer,${neutre} ${rose}try again${neutre}${rouge}.${neutre}"
 		read action
+		echo "$action" > ~/goinfre/fread
 	fi
 	if [ $action = exit ]
 	then
