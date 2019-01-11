@@ -4,7 +4,7 @@ echo -e "${violetclair}What do you want to do${neutre}${vertclair}?${neutre} ${v
 read action
 while [ $action ] 
 do
-	if [ $action != status ] || [ $action != log ] || [ $action != add ]
+	if [ $action != status ] && [ $action != log ] && [ $action != add ]
 	then
 		echo -e "${rouge}Oops wrong answer,${neutre} ${rose}try again${neutre}${rouge}.${neutre}"
 		read action
@@ -26,6 +26,17 @@ then
 		git push 2>~/goinfre/push
 		echo -e "${vertfonce}Your work has been pushed${neutre}${rouge}.${neutre}"
 		echo -e "${rose}If you want to see the commit result, enter${neutre} ${vertclair}commit${neutre}. ${rose}For push result, enter${neutre} ${vertclair}push${neutre}${rose}. Else, ${neutre}${vertclair}exit${neutre}${rose}.${neutre}"
+		read rep
+		if [ $rep = commit ]
+		then
+			echo `cat ~/goinfre/commit`
+		elif [ $rep = push ]
+		then
+			echo `cat ~/goinfre/push`
+		elif [ $rep = exit ]
+		then
+			exit
+		fi
 		exit
 	fi
 done
