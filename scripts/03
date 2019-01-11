@@ -26,6 +26,24 @@ then
 		read commit
 		git commit -m $commit > ~/goinfre/commit 
 		git push 2>~/goinfre/push
+		if [ git push | grep fatal ]
+		then
+			echo -e "${rose}There was a problem. For more info,${neutre} ${vertclair}push${neutre}${rose}.${neutre}"
+			read pb
+			while [ $pb ]
+			do
+				if [ $pb = push ]
+				then
+					echo `cat ~/goinfre/push`
+					echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
+					exit
+				elif [ $pb != push ]
+				then
+					echo -e "${rouge}Oops wrong answer,${neutre} ${rose}try again${neutre}${rouge}.${neutre}"
+					read pb
+				fi
+			done
+		fi
 		echo -e "${vertfonce}Your work has been pushed${neutre}${rouge}.${neutre}"
 		echo -e "${rose}If you want to see the commit result, enter${neutre} ${vertclair}commit${neutre}. ${rose}For push result, enter${neutre} ${vertclair}push${neutre}${rose}. Else, ${neutre}${vertclair}exit${neutre}${rose}.${neutre}"
 		read rep
