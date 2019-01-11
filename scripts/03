@@ -30,7 +30,7 @@ do
 		echo -e "${cyanfonce}What is the name of the commit${neutre}${jaune}?${neutre} ${gris}(only one word authorized)${neutre}"
 		read commit 
 		echo "$commit" > ~/goinfre/fread
-		if [ $# != 0 ]
+		if grep -q ' ' ~/goinfre/fread
 		then
 			echo -e "${rouge}Too bad, but I said${neutre} ${vertclair}one${neutre} ${rouge}word.${neutre} ${rouge}Bye${neutre} ${jaune}!${neutre}"
 			exit
