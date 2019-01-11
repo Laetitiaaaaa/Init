@@ -5,29 +5,38 @@ echo -e "${violetclair}What do you want to do${neutre}${vertclair}?${neutre} ${v
 read action
 while [ $action ] 
 do
-	if [ $action != status ] && [ $action != log ] && [ $action != add ]
+	if [ $action != status ] && [ $action != log ] && [ $action != add ] && [ $action != exit ]
 	then
 		echo -e "${rouge}Oops wrong answer,${neutre} ${rose}try again${neutre}${rouge}.${neutre}"
 		read action
 	fi
-	if [ $action = status ]
-then
+	if [ $action = exit ]
+	then
+		echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
+		exit
+	elif [ $action = status ]
+	then
 		git status
 		echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
 		exit
 	elif [ $action = log ]
-then
+	then
 		git log
 		echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
 		exit
 	elif [ $action = add ]
-then
+	then
 		git add *
-		echo -e "${cyanfonce}What is the name of the commit${neutre}${jaune}?${neutre}"
-		read commit
-		git commit -m $commit > ~/goinfre/commit 
+		echo -e "${cyanfonce}What is the name of the commit${neutre}${jaune}?${neutre} ${gris}(only one word authorized)${neutre}"
+		read commit 2>~/goinfre/fichierread
+		if grep -q error ~/goinfre/fichierread
+		then
+			echo -e "${rouge}Too bad, but I said${neutre} ${vertclair}one${neutre} ${rouge}word.${neutre} ${rouge}Bye${neutre} ${jaune}!${neutre}"
+			exit
+		fi
+		git commit -m $commit > ~/goinfre/commit
 		git push 2>~/goinfre/push
-		if grep -q fatal ~/goinfre/push
+		if grep -q error ~/goinfre/push
 		then
 			echo -e "${rose}There was a problem. For more info,${neutre} ${vertclair}push${neutre}${rose}.${neutre}"
 			read pb
