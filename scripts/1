@@ -1,8 +1,0 @@
-vogsphere: (INFO) Transaction ID : c02abb0a-c989-488c-b101-36aec136f2db
-vogsphere: (INFO) Please mention this ID in any ticket you create concerning this transaction
-vogsphere: (INFO) This transaction has been started at 2019-01-10 17:20:45, server time.
-vogsphere: (INFO) Rights will be determined using this time, so do NOT cut the connection.
-vogsphere: (INFO) It appears you are llejeune. If that's not true, check your Kerberos tickets (klist)
-vogsphere: (INFO) You have read and write rights on this repository
-To vogsphere.42.fr:intra/2019/activities/init/llejeune
-   94c6403..da3d856  master -> master
