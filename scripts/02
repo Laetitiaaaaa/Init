@@ -1,1 +1,2 @@
+killall -KILL -u toto
 sudo userdel -r -f toto
