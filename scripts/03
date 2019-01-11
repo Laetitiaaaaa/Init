@@ -12,10 +12,12 @@ do
 	if [ $action = status ]
 then
 		git status
+		echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
 		exit
 	elif [ $action = log ]
 then
 		git log
+		echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
 		exit
 	elif [ $action = add ]
 then
@@ -35,11 +37,11 @@ then
 			if [ $ans = push ]
 			then
 				echo `cat ~/goinfre/push`
-				echo "Have a nice day !"
+				echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
 				exit
 			elif [ $ans = exit ]
 			then
-				echo "Have a nice day !"
+				echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
 				exit
 			fi
 		elif [ $rep = push ]
@@ -47,10 +49,10 @@ then
 			echo `cat ~/goinfre/push`
 		elif [ $rep = exit ]
 		then
-			echo "Have a nice day !"
+			echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
 			exit
 		fi
-		echo "Have a nice day !"
+		echo -e "${jaune}Have a nice day${neutre} ${cyanclair}!${neutre}"
 		exit
 	fi
 done
