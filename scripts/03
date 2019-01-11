@@ -36,7 +36,7 @@ do
 			exit
 		fi
 		git commit -m $commit > ~/goinfre/commit
-		git push 2>~/goinfre/push
+		git push 2>>~/goinfre/push
 		if grep -q error ~/goinfre/push
 		then
 			echo -e "${rose}There was a problem. For more info,${neutre} ${vertclair}push${neutre}${rose}.${neutre}"
