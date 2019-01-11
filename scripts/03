@@ -30,13 +30,26 @@ then
 		if [ $rep = commit ]
 		then
 			echo `cat ~/goinfre/commit`
+			echo "Anything else ? (push/no)"
+			read ans
+			if [ $ans = push ]
+			then
+				echo `cat ~/goinfre/push`
+				exit
+			elif [ $ans = exit ]
+			then
+				echo "Have a nice day !"
+				exit
+			fi
 		elif [ $rep = push ]
 		then
 			echo `cat ~/goinfre/push`
 		elif [ $rep = exit ]
 		then
+			echo "Have a nice day !"
 			exit
 		fi
+		echo "Have a nice day !"
 		exit
 	fi
 done
