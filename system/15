@@ -1,2 +1,1 @@
-#trouver le pid de tail dans "top" et l'utiliser pour kill
-sudo kill
+sudo pkill tail

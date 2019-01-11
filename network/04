@@ -1,1 +1,1 @@
-netstat -rn | grep default | grep en0
+netstat -rn | grep default | grep en0 | cut -d ' ' -f 13
