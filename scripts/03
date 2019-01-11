@@ -32,7 +32,7 @@ then
 		if [ $rep = commit ]
 		then
 			echo `cat ~/goinfre/commit`
-			echo "${rose}Anything else ?${neutre} ${rouge}(push/no)${neutre}"
+			echo -e "${rose}Anything else ?${neutre} ${rouge}(push/no)${neutre}"
 			read ans
 			if [ $ans = push ]
 			then
@@ -47,7 +47,7 @@ then
 		elif [ $rep = push ]
 		then
 			echo `cat ~/goinfre/push`
-			echo "${rose}Anything else ?${neutre} ${rouge}(commit/no)${neutre}"
+			echo -e "${rose}Anything else ?${neutre} ${rouge}(commit/no)${neutre}"
 			read ans
 			if [ $ans = commit ]
 			then
