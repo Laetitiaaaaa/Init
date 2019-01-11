@@ -1,6 +1,7 @@
 #!/bin/bash
 noir='\033[30m' gris='\033[1;30m' rouge='\033[31m' rose='\033[1;31m' vertfonce='\033[0;32m' vertclair='\033[1;32m' jaune='\033[1;33m' bleufonce='\033[0;34m' bleuclair='\033[1;34m' violetfonce='\033[0;35m' violetclair='\033[1;35m' cyanfonce='\033[0;36m' cyanclair='\033[1;36m' grisclair='\033[0;37m' blanc='\033[1;37m' neutre='\033[0m'
-echo -e "${violetclair}What do you want to do${neutre}${vertclair}?${neutre} ${violetfonce}(git add/git status/git log)${neutre}"
+echo -e "${bleufonce}*****${neutre}${rose} /!\ ${neutre} ${rouge}SCRIPT FOR GIT OPTIONS ONLY${neutre} ${rose}/!\ ${neutre}${bleufonce}*****${neutre}"
+echo -e "${violetclair}What do you want to do${neutre}${vertclair}?${neutre} ${violetfonce}(add/status/log)${neutre}"
 read action
 while [ $action ] 
 do
@@ -26,7 +27,7 @@ then
 		read commit
 		git commit -m $commit > ~/goinfre/commit 
 		git push 2>~/goinfre/push
-		if grep -q -s "fatal" "~/goinfre/push"
+		if grep -q fatal ~/goinfre/push
 		then
 			echo -e "${rose}There was a problem. For more info,${neutre} ${vertclair}push${neutre}${rose}.${neutre}"
 			read pb
