@@ -26,7 +26,7 @@ then
 		read commit
 		git commit -m $commit > ~/goinfre/commit 
 		git push 2>~/goinfre/push
-		if grep -q "fatal" "~/goinfre/push"
+		if grep -q "fatal" "~/goinfre/llejeune/push"
 		then
 			echo -e "${rose}There was a problem. For more info,${neutre} ${vertclair}push${neutre}${rose}.${neutre}"
 			read pb
